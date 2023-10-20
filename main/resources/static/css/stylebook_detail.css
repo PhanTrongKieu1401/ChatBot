@@ -1,0 +1,108 @@
+.background {
+    background-image: url("http://localhost:8888/image/RE4wwu9.jpg");
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.form-box {
+    width: 960px;
+    background: #f1f7fe;
+    border-radius: 16px;
+    color: #010101;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}
+
+.form-container {
+    overflow: hidden;
+    margin: 1rem 0rem 1rem 2rem;
+    width: 100%;
+}   
+
+.btn {
+    background-color: #0066ff;
+    color: #fff;
+    border: 0;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+/* Thiết lập CSS cho nút tùy chỉnh */
+.custom-file-upload {
+    border: 1px solid #010101;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.custom-file-upload:hover {
+    background-color: #f5f5f5;
+}
+
+.img_input {
+    margin-left: 40px;
+    width: 350px;
+    height: 315px;
+    border: 1px solid #010101;
+}
+
+select {
+    border: 1px solid #010101;
+    outline: 10px;
+    height: 35px;
+    width: 205px;
+    font-size: .9rem;
+    padding: 8px 15px;
+}
+
+option {
+    background-color: #fff;
+    color: black;
+}
+
+select option:focus {
+    background-color: aquamarine;
+}
+
+.img-block{
+    margin-left: 30px;
+    width: 350px;
+    height: 430px;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+}
+
+.style-input {
+    border: 1px solid #010101;
+    outline: 10px;
+    height: 20px;
+    width: 80%;
+    font-size: .9rem;
+    padding: 8px 15px;
+}
+
+.foot {
+    margin-top: 550px;
+    height: 50px;
+}
+/* --validate css-- */
+.highlight {
+  border: 1px solid red;
+}

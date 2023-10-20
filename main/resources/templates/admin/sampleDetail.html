@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1 class="text-center"><b>Sample</b></h1>
+
+	<form th:action="@{/intents/{idIntents}/sample/save/{id}(idIntents=${intents.id}, id=${sample.id})}"
+		th:method="POST" th:object="${sample}" onsubmit="return validateForm()">
+		<div class="d-flex justify-content-center align-items-center">
+			<div>
+				<span class="title" style="margin-right:5px">Name intents:</span>
+				<input class="style-input" type="text" th:value="${intents.textIntents}" disabled
+					style="margin: 20px 0px 5px 0px"><br>
+				<span class="title" style="margin-right:35px">Question:</span>
+				<input class="style-input" type="text" placeholder="Input question" name="question"
+					style="margin: 5px 0px" th:value="${sample.question}"><br>
+				<span class="title" style="margin-right:37px">Respond:</span>
+				<input class="style-input" type="text" placeholder="Input respond" name="respond"
+					style="margin: 5px 0px" th:value="${sample.respond}"><br>
+			</div>
+		</div>
+		<div class="d-flex justify-content-center align-items-center">
+			<div class="col-6"></div>
+			<div class="col-6">
+				<input class="btn btn-primary" type="submit" value="Save sample" style="margin:5px 0px 0px 32px">
+			</div>
+		</div>
+	</form>
+
+	<script>
+		function validateForm() {
+			var questionInput = document.getElementsByName("question")[0];
+			var respondInput = document.getElementsByName("respond")[0];
+
+			if (questionInput.value.trim() === "") {
+				alert("Vui lòng nhập câu hỏi.");
+				return false;
+			}
+
+			if (respondInput.value.trim() === "") {
+				alert("Vui lòng nhập câu trả lời.");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+
+</html>

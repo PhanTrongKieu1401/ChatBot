@@ -1,0 +1,129 @@
+.form-box {
+    display: flex;
+    width: 880px;
+    background: #fff;
+    color: #010101;
+    position: absolute;
+    border: 1px solid #ccc;  
+    top: 10%;
+    border-radius: 5px;
+}
+
+h4{
+	display: inline-block;
+	margin: 10px;
+}
+
+.group-input {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 16.1px;
+    margin: 18px 0px 0px;
+}
+
+.group-input button{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.group-input button img{
+    padding: 0px;
+    margin: 0px;
+    vertical-align: middle;
+}
+
+.group-input input{
+    width: 40px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }  
+
+.suggest {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 60rem;
+    float: right;
+    border-radius: 5px;
+}
+
+.block-suggest {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    margin: 0px;
+    transform: scale(0.75);
+    max-width: 1200px;
+    position: relative;
+    top: -100px;
+}
+
+.sug-book {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0px;
+    width: 200px;
+    transition: transform 0.5s;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 180px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.sug-book-container :hover {
+    background-color: #e7f0ef;
+}
+
+.sug-book img {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+    height: 200px;
+}
+
+.sug-book h2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 5px 0 0 0;
+}
+
+.sug-book button {
+    background-color: #428bca;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.sug-book button:hover {
+    background-color: #165fa0;
+}
+
+.desciption{
+    background-color: #fff;
+    position: relative;
+    border: 1px solid #ccc;
+    width: 62.9%;
+    margin: 10px 0 0 23px;
+    border-radius: 5px;
+    padding: 0 0 0 30px;
+}
+
+.parent {
+    position: relative;
+    margin-bottom: -460px;
+    top: -460px;
+}

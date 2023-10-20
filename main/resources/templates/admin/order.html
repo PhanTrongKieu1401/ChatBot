@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Admin</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="/admin">Book Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                            href="/admin">Home</a></li>
+                    <li class="nav-item">
+                    	<a class="nav-link text-white" href="/admin/bookmanagement">Book Management</a></li>
+                    <li class="nav-item">
+                    	<a class="btn" style="background: #fff" href="">Order Management</a></li>
+                </ul>
+            </div>
+            <div>
+                <div th:if="${session.accountAdmin==null}">
+                    <a class="nav-link text-white" style="float:right;margin-right:10px;" href="/login">Log in</a>
+                </div>
+                <div style="display: flex" class="info" th:if="${session.accountAdmin!=null}">
+                    <div>
+                        <a th:href="@{/admin}" class="d-block text-white">[[${session.accountAdmin.username}]]</a>
+                    </div>
+                    <div style="margin-left: 3px;">
+                        <a th:href="@{/logoutAdmin}" class="d-block text-primary"> | Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row text-center">
+            <h1>Order Management</h1>
+        </div>
+        <form style="display:flex;" th:action="@{/admin/findBook}">
+            <input placeholder="Search title" type="search" name="keyword" class=""
+                style="height: 38px;margin-right:10px; width:250px;">
+            <button class="btn btn-secondary" type="submit" hidden="1">Search</button>
+        </form>
+    </div>
+
+    <div class="content-wrapper" style="margin-top:10px;">
+        <div class="container text-center">
+            <table class="table table-bordered table-hover" style="width: 100%">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Cover</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total money</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="o:${listO}" style="text-align: center">
+                        <td>
+                            <img style="width: 50px;height: 80px;" th:src="@{'/uploads/'+${o.cover}}" /></a>
+                        </td>
+                        <td>[[${o.title}]]</td>
+                        <td>[[${o.author}]]</td>
+                        <td>[[${o.category}]]</td>
+                        <td>[[${o.price}]]</td>
+                        <td>[[${o.quantity}]]</td>
+                        <td>[[${o.totalMoney}]]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+<script>
+  // Lấy tham chiếu đến thẻ input search
+  var searchInput = document.querySelector('input[name="keyword"]');
+
+  // Lắng nghe sự kiện khi người dùng nhập ký tự vào ô input
+  searchInput.addEventListener('input', filterTable);
+
+  // Hàm lọc dữ liệu trong bảng
+  function filterTable() {
+    // Lấy giá trị từ ô input search
+    var keyword = searchInput.value.toLowerCase();
+
+    // Lấy danh sách các hàng trong bảng
+    var rows = document.querySelectorAll('table tbody tr');
+
+    // Lặp qua từng hàng và ẩn hiện hàng tương ứng dựa trên ký tự lọc
+    rows.forEach(function(row) {
+      // Lấy giá trị từng ô trong hàng
+      var title = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+      var author = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+      var category = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+      // Kiểm tra nếu ký tự lọc có tồn tại trong bất kỳ ô nào của hàng
+      if (title.includes(keyword) || author.includes(keyword) || category.includes(keyword)) {
+        // Hiển thị hàng nếu tìm thấy ký tự lọc
+        row.style.display = 'table-row';
+      } else {
+        // Ẩn hàng nếu không tìm thấy ký tự lọc
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</html>

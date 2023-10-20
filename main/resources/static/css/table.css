@@ -1,0 +1,11 @@
+.custom-table {
+  width: 100%;
+}
+
+.custom-table tbody td {
+  border: 1px solid #ccc; /* Màu và độ rộng của viền */
+}
+
+.custom-table th {
+  background-color: orange; /* Màu nền của phần header */
+}
